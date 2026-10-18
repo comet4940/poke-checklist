@@ -464,7 +464,7 @@ window.ARTIST_CARD_DATA = {
       "tcgNumber": "69/165",
       "tcgProductLine": "pokemon-japan",
       "tcgSearchQuery": "Bellsprout 69/165",
-      "image": "https://assets.tcgdex.net/ja/sv/sv2a/069/low.webp",
+      "image": "https://static.tcgcollector.com/content/images/30/93/0a/30930a95418105e637d930c81a0e807a67b8be8a3233ae4f47cdf57ebc7edefe.jpg",
       "id": "bellsprout-pokemon-card-151-japanese-069-165",
       "themeFit": "scene",
       "reflectionNote": "Fireflies glow across the marsh at dusk"
