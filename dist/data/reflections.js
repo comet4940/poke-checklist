@@ -39,8 +39,8 @@ window.ARTIST_CARD_DATA = {
       "tcgSearchQuery": "Misty's Quagsire 58/141",
       "image": "https://static.tcgcollector.com/content/images/46/28/01/462801e010ce5ef4c058bfa2ad29eb707b47e7fd7ba207a057625a77796a40f6.jpg",
       "id": "mistys-quagsire-pokemon-vs-058-141",
-      "themeFit": "scene",
-      "reflectionNote": "Sunset reflected across the water"
+      "themeFit": "clear",
+      "reflectionNote": "Quagsire's reflection is visible in the water"
     },
     {
       "name": "Larvitar",
@@ -92,8 +92,8 @@ window.ARTIST_CARD_DATA = {
       "tcgNumber": "19/144",
       "image": "https://assets.tcgdex.net/en/ecard/ecard3/19/low.webp",
       "id": "magneton-skyridge-019-144",
-      "themeFit": "scene",
-      "reflectionNote": "Magneton hovers over a reflective pool"
+      "themeFit": "clear",
+      "reflectionNote": "Magneton is reflected in a shiny, orb-like surface"
     },
     {
       "name": "Vileplume",
@@ -105,8 +105,8 @@ window.ARTIST_CARD_DATA = {
       "tcgNumber": "43/147",
       "image": "https://assets.tcgdex.net/en/ecard/ecard2/43/low.webp",
       "id": "vileplume-aquapolis-043-147",
-      "themeFit": "scene",
-      "reflectionNote": "A reflective, flower-filled scene"
+      "themeFit": "clear",
+      "reflectionNote": "Vileplume's reflection is visible in a puddle of water"
     },
     {
       "name": "Wobbuffet",
@@ -158,8 +158,8 @@ window.ARTIST_CARD_DATA = {
       "tcgNumber": "86/106",
       "image": "https://assets.tcgdex.net/en/dp/dp4/86/low.webp",
       "id": "swablu-great-encounters-086-106",
-      "themeFit": "scene",
-      "reflectionNote": "Swablu floats among reflective clouds"
+      "themeFit": "clear",
+      "reflectionNote": "Swablu is reflected in the pond below"
     },
     {
       "name": "Pachirisu",
@@ -302,7 +302,7 @@ window.ARTIST_CARD_DATA = {
       "image": "https://images.pokemontcg.io/swsh11tg/TG09.png",
       "id": "spiritomb-lost-origin-trainer-gallery-tg09-tg30",
       "themeFit": "scene",
-      "reflectionNote": "A ghostly image repeats in the window"
+      "reflectionNote": "Vessa's reflection appears in the window pane"
     },
     {
       "name": "Klang",
@@ -466,8 +466,8 @@ window.ARTIST_CARD_DATA = {
       "tcgSearchQuery": "Bellsprout 69/165",
       "image": "https://static.tcgcollector.com/content/images/30/93/0a/30930a95418105e637d930c81a0e807a67b8be8a3233ae4f47cdf57ebc7edefe.jpg",
       "id": "bellsprout-pokemon-card-151-japanese-069-165",
-      "themeFit": "scene",
-      "reflectionNote": "Fireflies glow across the marsh at dusk"
+      "themeFit": "clear",
+      "reflectionNote": "Bellsprout is reflected in the water"
     },
     {
       "name": "Cufant",
@@ -683,7 +683,7 @@ window.ARTIST_CARD_DATA = {
       "image": "https://images.pokemontcg.io/rsv10pt5/89.png",
       "id": "leavanny-white-flare-089-086",
       "themeFit": "scene",
-      "reflectionNote": "A stream winds through the leafy scene",
+      "reflectionNote": "Two bird-like Pokémon are reflected in the water",
       "tcgDashNumber": true
     },
     {
