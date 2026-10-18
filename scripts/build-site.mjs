@@ -168,7 +168,7 @@ function renderThemeHero(artist, cards) {
         '<nav class="profile-breadcrumbs" aria-label="Breadcrumb">',
           '<a href="./">Collections</a><span aria-hidden="true">/</span><span>' + escapeHtml(artist.pageCategory || "Community theme") + '</span><span aria-hidden="true">/</span><span aria-current="page">' + escapeHtml(artist.name) + '</span>',
         '</nav>',
-        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> A community-curated checklist</p>',
+        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> ' + (reflectionTheme ? 'A hand-curated checklist' : 'A community-curated checklist') + '</p>',
         '<h1 id="artist-title"><span>' + escapeHtml(artist.pageHeadingLead || "Pokémon cards with") + '</span><em>' + escapeHtml(artist.pageHeadingAccent || artist.name) + '</em></h1>',
         '<p class="profile-intro">' + escapeHtml(artist.pageBlurb) + '</p>',
         '<div class="profile-badges">',
@@ -228,7 +228,6 @@ function renderThemeScope(artist) {
         '<p><strong>Clear self-reflections</strong><br>The Pokémon’s own image is visible in a mirror, glass, reflective water, or a reflective bubble.</p>',
         '<p><strong>Related reflection scenes</strong><br>Reflections shape the art, but the Pokémon’s own image may not be clearly shown.</p>',
       '</div>',
-      '<p class="reflection-sources">A visual, community-built list inspired by a <a href="https://www.threads.com/share/_8oPxnQs4/" target="_blank" rel="noopener noreferrer">collector’s reflection-card post on Threads</a>, with more ideas from the <a href="https://staiz.io/collection/reflections" target="_blank" rel="noopener noreferrer">Staiz Reflections gallery</a> and <a href="https://www.reddit.com/r/PokemonTCG/comments/1m7xzs5/any_more_cards_with_a_pokemon_reflection_in_water/" target="_blank" rel="noopener noreferrer">collector discussion</a>. Card fit is subjective; a card name, set, and number make future additions easier to verify.</p>',
     '</section>'
   ].join("");
 }
