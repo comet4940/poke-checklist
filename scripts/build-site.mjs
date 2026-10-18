@@ -168,7 +168,7 @@ function renderThemeHero(artist, cards) {
         '<nav class="profile-breadcrumbs" aria-label="Breadcrumb">',
           '<a href="./">Collections</a><span aria-hidden="true">/</span><span>' + escapeHtml(artist.pageCategory || "Community theme") + '</span><span aria-hidden="true">/</span><span aria-current="page">' + escapeHtml(artist.name) + '</span>',
         '</nav>',
-        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> A community-curated checklist</p>',
+        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> ' + (reflectionTheme ? 'A hand-curated checklist' : 'A community-curated checklist') + '</p>',
         '<h1 id="artist-title"><span>' + escapeHtml(artist.pageHeadingLead || "Pokémon cards with") + '</span><em>' + escapeHtml(artist.pageHeadingAccent || artist.name) + '</em></h1>',
         '<p class="profile-intro">' + escapeHtml(artist.pageBlurb) + '</p>',
         '<div class="profile-badges">',
@@ -225,10 +225,9 @@ function renderThemeScope(artist) {
     '<section class="reflection-scope" aria-labelledby="reflection-scope-title">',
       '<div class="reflection-scope-heading"><p class="eyebrow muted">HOW THIS CHECKLIST IS CURATED</p><h2 id="reflection-scope-title">Two ways reflections appear</h2></div>',
       '<div class="reflection-scope-grid">',
-        '<p><strong>Clear self-reflections</strong><br>The Pokémon’s own image is visible in a mirror, glass, or reflective water.</p>',
+        '<p><strong>Clear self-reflections</strong><br>The Pokémon’s own image is visible in a mirror, glass, reflective water, or a reflective bubble.</p>',
         '<p><strong>Related reflection scenes</strong><br>Reflections shape the art, but the Pokémon’s own image may not be clearly shown.</p>',
       '</div>',
-      '<p class="reflection-sources">A visual, community-built list inspired by a <a href="https://www.threads.com/share/_8oPxnQs4/" target="_blank" rel="noopener noreferrer">collector’s reflection-card post on Threads</a>, with more ideas from the <a href="https://staiz.io/collection/reflections" target="_blank" rel="noopener noreferrer">Staiz Reflections gallery</a> and <a href="https://www.reddit.com/r/PokemonTCG/comments/1m7xzs5/any_more_cards_with_a_pokemon_reflection_in_water/" target="_blank" rel="noopener noreferrer">collector discussion</a>. Card fit is subjective; a card name, set, and number make future additions easier to verify.</p>',
     '</section>'
   ].join("");
 }
@@ -247,7 +246,9 @@ function renderCardIndex(cards, includeYearHeadings = true) {
     const searchQuery = includeYearHeadings
       ? card.name + " " + card.set + " " + card.no.replace("#", "")
       : (card.tcgSearchQuery || card.name + " " + normalizeCollectorNumber(card.no.replace("#", "")));
-    const shopUrl = "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=" + encodeURIComponent(searchQuery) + "&view=grid";
+    const productLine = card.tcgProductLine || "pokemon";
+    const cardSearchQuery = card.tcgSearchQuery || searchQuery;
+    const shopUrl = "https://www.tcgplayer.com/search/" + productLine + "/product?productLineName=" + productLine + "&q=" + encodeURIComponent(cardSearchQuery) + "&view=grid";
     pieces.push([
       '<article class="card-row">',
         '<label class="own-toggle card-own-toggle" aria-label="Mark ' + escapeHtml(card.name) + ' as owned">',
@@ -344,6 +345,9 @@ for (const { artist, cards } of catalogs) {
     PAGE_TYPE: artist.isTheme ? "theme" : "artist",
     CARD_COUNT: cards.length,
     CARD_LIST: renderCardIndex(cards, !artist.isTheme),
+    JAPANESE_SHOP_NOTE: cards.some(card => card.tcgProductLine === "pokemon-japan")
+      ? '<div id="japanese-shop-note" class="japanese-shop-note" hidden></div>'
+      : "",
     DESCRIPTION: escapeHtml(description),
     PAGE_TITLE: escapeHtml(pageTitle),
     SOCIAL_PREVIEW_URL: escapeHtml(siteUrl + "/" + (artist.pageSocialAsset || "assets/pokechecklist-social-preview.jpg")),

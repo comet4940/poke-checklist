@@ -29,6 +29,34 @@ window.ARTIST_CARD_DATA = {
       "reflectionNote": "Water reflection"
     },
     {
+      "name": "Misty's Quagsire",
+      "set": "Pokémon VS (Japanese)",
+      "no": "058/141",
+      "year": 2001,
+      "illustrator": "Satoshi Ohta",
+      "tcgNumber": "58/141",
+      "tcgProductLine": "pokemon-japan",
+      "tcgSearchQuery": "Misty's Quagsire 58/141",
+      "image": "https://static.tcgcollector.com/content/images/46/28/01/462801e010ce5ef4c058bfa2ad29eb707b47e7fd7ba207a057625a77796a40f6.jpg",
+      "id": "mistys-quagsire-pokemon-vs-058-141",
+      "themeFit": "clear",
+      "reflectionNote": "Quagsire's reflection is visible in the water"
+    },
+    {
+      "name": "Larvitar",
+      "set": "Neo Discovery",
+      "no": "057/075",
+      "year": 2001,
+      "illustrator": "Hironobu Yoshida",
+      "tcgCode": "N2",
+      "tcgNumber": "57/75",
+      "tcgMassEntryName": "Larvitar (57)",
+      "image": "https://assets.tcgdex.net/en/neo/neo2/57/low.webp",
+      "id": "larvitar-neo-discovery-057-075",
+      "themeFit": "clear",
+      "reflectionNote": "Larvitar reflected in the water"
+    },
+    {
       "name": "Natu",
       "set": "Skyridge",
       "no": "080/144",
@@ -40,6 +68,58 @@ window.ARTIST_CARD_DATA = {
       "id": "natu-skyridge-080-144",
       "themeFit": "scene",
       "reflectionNote": "Reflective surface behind natu"
+    },
+    {
+      "name": "Corphish",
+      "set": "EX Dragon",
+      "no": "054/097",
+      "year": 2003,
+      "illustrator": "Hisao Nakamura",
+      "tcgCode": "DR",
+      "tcgNumber": "54/97",
+      "image": "https://images.pokemontcg.io/ex3/54.png",
+      "id": "corphish-ex-dragon-054-097",
+      "themeFit": "clear",
+      "reflectionNote": "Corphish reflected in bubbles"
+    },
+    {
+      "name": "Magneton",
+      "set": "Skyridge",
+      "no": "019/144",
+      "year": 2003,
+      "illustrator": "Hajime Kusajima",
+      "tcgCode": "SK",
+      "tcgNumber": "19/144",
+      "image": "https://assets.tcgdex.net/en/ecard/ecard3/19/low.webp",
+      "id": "magneton-skyridge-019-144",
+      "themeFit": "clear",
+      "reflectionNote": "Magneton is reflected in a shiny, orb-like surface"
+    },
+    {
+      "name": "Vileplume",
+      "set": "Aquapolis",
+      "no": "043/147",
+      "year": 2003,
+      "illustrator": "Kyoko Umemoto",
+      "tcgCode": "AQ",
+      "tcgNumber": "43/147",
+      "image": "https://assets.tcgdex.net/en/ecard/ecard2/43/low.webp",
+      "id": "vileplume-aquapolis-043-147",
+      "themeFit": "clear",
+      "reflectionNote": "Vileplume's reflection is visible in a puddle of water"
+    },
+    {
+      "name": "Wobbuffet",
+      "set": "Holon Phantoms",
+      "no": "056/110",
+      "year": 2006,
+      "illustrator": "Katsura Tabata",
+      "tcgCode": "HP",
+      "tcgNumber": "56/110",
+      "image": "https://assets.tcgdex.net/en/ex/ex13/56/low.webp",
+      "id": "wobbuffet-holon-phantoms-056-110",
+      "themeFit": "clear",
+      "reflectionNote": "Wobbuffet appears in a mirror"
     },
     {
       "name": "Mom's Kindness",
@@ -67,6 +147,19 @@ window.ARTIST_CARD_DATA = {
       "id": "oddish-legends-awakened-111-146",
       "themeFit": "scene",
       "reflectionNote": "Reflective water in the streambed"
+    },
+    {
+      "name": "Swablu",
+      "set": "Great Encounters",
+      "no": "086/106",
+      "year": 2008,
+      "illustrator": "Kanako Eo",
+      "tcgCode": "GE",
+      "tcgNumber": "86/106",
+      "image": "https://assets.tcgdex.net/en/dp/dp4/86/low.webp",
+      "id": "swablu-great-encounters-086-106",
+      "themeFit": "clear",
+      "reflectionNote": "Swablu is reflected in the pond below"
     },
     {
       "name": "Pachirisu",
@@ -184,6 +277,45 @@ window.ARTIST_CARD_DATA = {
       "id": "flaaffy-silver-tempest-trainer-gallery-tg03-tg30",
       "themeFit": "clear",
       "reflectionNote": "Mirror while being groomed"
+    },
+    {
+      "name": "Milotic",
+      "set": "Silver Tempest Trainer Gallery",
+      "no": "TG02/TG30",
+      "year": 2022,
+      "illustrator": "chibi",
+      "tcgCode": "SWSH12: TG",
+      "tcgNumber": "TG02/TG30",
+      "image": "https://images.pokemontcg.io/swsh12tg/TG02.png",
+      "id": "milotic-silver-tempest-trainer-gallery-tg02-tg30",
+      "themeFit": "scene",
+      "reflectionNote": "Milotic and Wallace amid reflective water"
+    },
+    {
+      "name": "Spiritomb",
+      "set": "Lost Origin Trainer Gallery",
+      "no": "TG09/TG30",
+      "year": 2022,
+      "illustrator": "Hitoshi Ariga",
+      "tcgCode": "SWSH11: TG",
+      "tcgNumber": "TG09/TG30",
+      "image": "https://images.pokemontcg.io/swsh11tg/TG09.png",
+      "id": "spiritomb-lost-origin-trainer-gallery-tg09-tg30",
+      "themeFit": "scene",
+      "reflectionNote": "Vessa's reflection appears in the window pane"
+    },
+    {
+      "name": "Klang",
+      "set": "Brilliant Stars",
+      "no": "103/172",
+      "year": 2022,
+      "illustrator": "Hataya",
+      "tcgCode": "BRS",
+      "tcgNumber": "103/172",
+      "image": "https://images.pokemontcg.io/swsh9/103.png",
+      "id": "klang-brilliant-stars-103-172",
+      "themeFit": "clear",
+      "reflectionNote": "Klang reflected in shallow water"
     },
     {
       "name": "Ivysaur",
@@ -310,6 +442,34 @@ window.ARTIST_CARD_DATA = {
       "reflectionNote": "Window reflection"
     },
     {
+      "name": "Swablu",
+      "set": "Paradox Rift",
+      "no": "213/182",
+      "year": 2023,
+      "illustrator": "Jiro Sasumo",
+      "tcgCode": "PAR",
+      "tcgNumber": "213/182",
+      "tcgDashNumber": true,
+      "image": "https://images.pokemontcg.io/sv4/213.png",
+      "id": "swablu-paradox-rift-213-182",
+      "themeFit": "clear",
+      "reflectionNote": "Swablu reflected in the water"
+    },
+    {
+      "name": "Bellsprout",
+      "set": "Pokémon Card 151 (Japanese)",
+      "no": "069/165",
+      "year": 2023,
+      "illustrator": "Jerky",
+      "tcgNumber": "69/165",
+      "tcgProductLine": "pokemon-japan",
+      "tcgSearchQuery": "Bellsprout 69/165",
+      "image": "https://static.tcgcollector.com/content/images/30/93/0a/30930a95418105e637d930c81a0e807a67b8be8a3233ae4f47cdf57ebc7edefe.jpg",
+      "id": "bellsprout-pokemon-card-151-japanese-069-165",
+      "themeFit": "clear",
+      "reflectionNote": "Bellsprout is reflected in the water"
+    },
+    {
       "name": "Cufant",
       "set": "Shrouded Fable",
       "no": "076/064",
@@ -418,6 +578,32 @@ window.ARTIST_CARD_DATA = {
       "reflectionNote": "Growlithe reflected in Perrin's camera lens"
     },
     {
+      "name": "Flittle",
+      "set": "Surging Sparks",
+      "no": "094/191",
+      "year": 2024,
+      "illustrator": "buchi",
+      "tcgCode": "SSP",
+      "tcgNumber": "94/191",
+      "image": "https://images.pokemontcg.io/sv8/94.png",
+      "id": "flittle-surging-sparks-094-191",
+      "themeFit": "clear",
+      "reflectionNote": "Water reflection"
+    },
+    {
+      "name": "Gulpin",
+      "set": "Stellar Crown",
+      "no": "091/142",
+      "year": 2024,
+      "illustrator": "Shimaris Yukichi",
+      "tcgCode": "SCR",
+      "tcgNumber": "91/142",
+      "image": "https://images.pokemontcg.io/sv7/91.png",
+      "id": "gulpin-stellar-crown-091-142",
+      "themeFit": "clear",
+      "reflectionNote": "Gulpin reflected along the stream bank"
+    },
+    {
       "name": "Dwebble",
       "set": "Black Bolt",
       "no": "129/086",
@@ -471,8 +657,47 @@ window.ARTIST_CARD_DATA = {
       "id": "blitzle-white-flare-114-086",
       "themeFit": "clear",
       "reflectionNote": "Water reflection"
+    },
+    {
+      "name": "Delibird",
+      "set": "Mega Evolution",
+      "no": "152/132",
+      "year": 2025,
+      "illustrator": "Takeshi Nakamura",
+      "tcgCode": "MEG",
+      "tcgNumber": "152/132",
+      "tcgDashNumber": true,
+      "image": "https://assets.tcgdex.net/en/me/me01/152/low.webp",
+      "id": "delibird-mega-evolution-152-132",
+      "themeFit": "clear",
+      "reflectionNote": "Delibird reflected on the icy surface"
+    },
+    {
+      "name": "Leavanny",
+      "set": "White Flare",
+      "no": "089/086",
+      "year": 2025,
+      "illustrator": "mashu",
+      "tcgCode": "WHT",
+      "tcgNumber": "089/086",
+      "image": "https://images.pokemontcg.io/rsv10pt5/89.png",
+      "id": "leavanny-white-flare-089-086",
+      "themeFit": "scene",
+      "reflectionNote": "Two bird-like Pokémon are reflected in the water",
+      "tcgDashNumber": true
+    },
+    {
+      "name": "Shieldon",
+      "set": "Pitch Black",
+      "no": "061/084",
+      "year": 2026,
+      "illustrator": "Kurata So",
+      "tcgCode": "PBL",
+      "tcgNumber": "61/84",
+      "image": "https://assets.tcgdex.net/en/me/me05/061/low.webp",
+      "id": "shieldon-pitch-black-061-084",
+      "themeFit": "clear",
+      "reflectionNote": "Shieldon reflected in a still forest pool"
     }
   ]
 };
-
-
