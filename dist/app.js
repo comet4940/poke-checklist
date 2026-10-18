@@ -82,13 +82,18 @@
   }
 
   function tcgSearchUrl(card) {
-    const query = card.name + " " + card.set + " " + card.no.replace("#", "");
-    return "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=" +
+    const productLine = card.tcgProductLine || "pokemon";
+    const query = card.tcgSearchQuery || card.name + " " + card.set + " " + card.no.replace("#", "");
+    return "https://www.tcgplayer.com/search/" + productLine + "/product?productLineName=" + productLine + "&q=" +
       encodeURIComponent(query) + "&view=grid";
   }
 
+  function massEntryCards(list) {
+    return list.filter(card => !card.tcgProductLine || card.tcgProductLine === "pokemon");
+  }
+
   function makeMassEntryList(list) {
-    return list.map(card => {
+    return massEntryCards(list).map(card => {
       const name = card.tcgMassEntryName || card.name;
       if (!card.tcgCode) return "1 " + name;
       if (!card.tcgNumber) return "1 " + name + " [" + card.tcgCode + "]";
@@ -103,6 +108,30 @@
     url.searchParams.set("productline", "Pokemon");
     url.searchParams.set("c", makeMassEntryList(list).split("\n").join("||"));
     return url.toString();
+  }
+
+  function renderJapaneseShopNote(list) {
+    const note = document.getElementById("japanese-shop-note");
+    if (!note) return;
+    const japaneseCards = list.filter(card => card.tcgProductLine === "pokemon-japan");
+    note.replaceChildren();
+    note.hidden = !japaneseCards.length;
+    if (!japaneseCards.length) return;
+
+    const intro = document.createElement("p");
+    intro.textContent = "Japanese-only cards are excluded from the Pokémon Mass Entry list. Shop them separately in Pokémon Japan:";
+    const links = document.createElement("ul");
+    japaneseCards.forEach(card => {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = tcgSearchUrl(card);
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = card.name + " · " + card.set + " " + card.no;
+      item.append(link);
+      links.append(item);
+    });
+    note.append(intro, links);
   }
 
   function renderCaughtStamp() {
@@ -272,11 +301,16 @@
     }
     els.massText.textContent = makeMassEntryList(missing);
     document.getElementById("shopping-missing-count").textContent = missing.length;
+    renderJapaneseShopNote(missing);
     els.dialog.showModal();
   }
 
   async function copyMassEntry() {
     const text = makeMassEntryList(missingCards());
+    if (!text) {
+      toast("Japanese-only cards need to be searched separately in Pokémon Japan.");
+      return;
+    }
     try {
       await navigator.clipboard.writeText(text);
       toast("TCGplayer list copied. Paste it into Mass Entry.");
@@ -292,7 +326,12 @@
       toast("You have the full list. No cards left to shop for.");
       return;
     }
-    const url = makePrefilledMassEntryUrl(missing);
+    const bulkMissing = massEntryCards(missing);
+    if (!bulkMissing.length) {
+      toast("Japanese-only cards need to be searched separately in Pokémon Japan.");
+      return;
+    }
+    const url = makePrefilledMassEntryUrl(bulkMissing);
     const popup = window.open(url, "_blank");
     if (popup) popup.opener = null;
     else window.location.href = url;
@@ -336,7 +375,12 @@
       toast("You have the full list. No cards left to shop for.");
       return;
     }
-    downloadFile(currentArtist.id + "-tcgplayer-list.txt", makeMassEntryList(missing), "text/plain;charset=utf-8");
+    const text = makeMassEntryList(missing);
+    if (!text) {
+      toast("Japanese-only cards need to be searched separately in Pokémon Japan.");
+      return;
+    }
+    downloadFile(currentArtist.id + "-tcgplayer-list.txt", text, "text/plain;charset=utf-8");
   });
   document.addEventListener("keydown", event => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {

@@ -29,6 +29,20 @@ window.ARTIST_CARD_DATA = {
       "reflectionNote": "Water reflection"
     },
     {
+      "name": "Misty's Quagsire",
+      "set": "Pokémon VS (Japanese)",
+      "no": "058/141",
+      "year": 2001,
+      "illustrator": "Satoshi Ohta",
+      "tcgNumber": "58/141",
+      "tcgProductLine": "pokemon-japan",
+      "tcgSearchQuery": "Misty's Quagsire 58/141",
+      "image": "https://static.tcgcollector.com/content/images/46/28/01/462801e010ce5ef4c058bfa2ad29eb707b47e7fd7ba207a057625a77796a40f6.jpg",
+      "id": "mistys-quagsire-pokemon-vs-058-141",
+      "themeFit": "scene",
+      "reflectionNote": "Sunset reflected across the water"
+    },
+    {
       "name": "Natu",
       "set": "Skyridge",
       "no": "080/144",
@@ -40,6 +54,19 @@ window.ARTIST_CARD_DATA = {
       "id": "natu-skyridge-080-144",
       "themeFit": "scene",
       "reflectionNote": "Reflective surface behind natu"
+    },
+    {
+      "name": "Corphish",
+      "set": "EX Dragon",
+      "no": "054/097",
+      "year": 2003,
+      "illustrator": "Hisao Nakamura",
+      "tcgCode": "DR",
+      "tcgNumber": "54/97",
+      "image": "https://images.pokemontcg.io/ex3/54.png",
+      "id": "corphish-ex-dragon-054-097",
+      "themeFit": "clear",
+      "reflectionNote": "Corphish reflected in bubbles"
     },
     {
       "name": "Mom's Kindness",
@@ -416,6 +443,19 @@ window.ARTIST_CARD_DATA = {
       "id": "perrin-twilight-masquerade-220-167",
       "themeFit": "scene",
       "reflectionNote": "Growlithe reflected in Perrin's camera lens"
+    },
+    {
+      "name": "Flittle",
+      "set": "Surging Sparks",
+      "no": "094/191",
+      "year": 2024,
+      "illustrator": "buchi",
+      "tcgCode": "SSP",
+      "tcgNumber": "94/191",
+      "image": "https://images.pokemontcg.io/sv8/94.png",
+      "id": "flittle-surging-sparks-094-191",
+      "themeFit": "clear",
+      "reflectionNote": "Water reflection"
     },
     {
       "name": "Dwebble",

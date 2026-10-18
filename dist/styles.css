@@ -819,6 +819,11 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .preview-head { padding: 9px 11px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #edede7; color: #929990; font-size: 8px; font-weight: 700; letter-spacing: .1em; }
 .copy-button { padding: 4px 6px; border: 0; border-radius: 4px; background: #f4f7f1; color: #53715c; cursor: pointer; font-size: 9px; font-weight: 700; }
 .mass-entry-preview pre { max-height: 137px; margin: 0; padding: 11px; overflow: auto; color: #64736a; font: 10px/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; }
+.japanese-shop-note { margin: 11px 0 0; padding: 10px 12px; border: 1px solid #e2e8df; border-radius: 7px; background: #f6f8f3; color: #68756b; font-size: 10px; line-height: 1.6; }
+.japanese-shop-note p { margin: 0; }
+.japanese-shop-note ul { margin: 6px 0 0; padding-left: 17px; }
+.japanese-shop-note a { color: #416b54; font-weight: 700; }
+.japanese-shop-note[hidden] { display: none; }
 .dialog-actions { margin-top: 13px; display: flex; gap: 8px; }
 .dialog-actions .button { flex: 1; min-height: 40px; }
 .affiliate-disclosure { margin: 9px 0 0; color: #7d887f; font-size: 9px; }
