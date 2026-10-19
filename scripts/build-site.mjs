@@ -55,6 +55,12 @@ if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(pok
 }
 await writeFile(path.join(distDir, "assets/pokemon-at-work-worksite-hero.webp"), Buffer.from(pokemonAtWorkHeroBase64, "base64"));
 
+const pokemonAtWorkSocialBase64 = (await readFile(path.join(projectRoot, "site/pokemon-at-work-social-preview.jpg.base64"), "utf8")).trim();
+if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(pokemonAtWorkSocialBase64)) {
+  throw new Error("Pokémon at Work social preview source is not valid base64.");
+}
+await writeFile(path.join(distDir, "assets/pokemon-at-work-social-preview.jpg"), Buffer.from(pokemonAtWorkSocialBase64, "base64"));
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
