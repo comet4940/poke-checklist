@@ -49,6 +49,12 @@ if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(nor
 }
 await writeFile(path.join(distDir, "assets/northern-lights-social-preview-v2.jpg"), Buffer.from(northernLightsSocialBase64, "base64"));
 
+const pokemonAtWorkHeroBase64 = (await readFile(path.join(projectRoot, "site/pokemon-at-work-worksite-hero.webp.base64"), "utf8")).trim();
+if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(pokemonAtWorkHeroBase64)) {
+  throw new Error("Pokémon at Work hero image source is not valid base64.");
+}
+await writeFile(path.join(distDir, "assets/pokemon-at-work-worksite-hero.webp"), Buffer.from(pokemonAtWorkHeroBase64, "base64"));
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"

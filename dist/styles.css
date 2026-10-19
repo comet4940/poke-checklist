@@ -546,8 +546,8 @@ h1 em { color: #6b8770; font-weight: 500; }
 .pokemon-at-work-theme-hero .community-theme-eyebrow { color: #8e6b32; }
 .pokemon-at-work-theme-hero .eyebrow-dot { background: #d3a23e; }
 .pokemon-at-work-theme-hero .profile-badge { border-color: #eadcbf; background: rgba(255,255,255,.86); }
-.pokemon-at-work-theme-hero .community-theme-feature { width: min(100%, 285px); overflow: visible; }
-.pokemon-at-work-theme-hero .profile-feature-image { aspect-ratio: auto; border-radius: 12px; object-fit: contain; transform: perspective(1000px) rotateY(-2deg) rotateX(1deg); filter: drop-shadow(0 10px 10px rgba(78, 63, 39, .14)) drop-shadow(0 22px 20px rgba(78, 63, 39, .16)); }
+.pokemon-at-work-theme-hero .community-theme-feature { width: min(100%, 470px); overflow: visible; }
+.pokemon-at-work-theme-hero .profile-feature-image { aspect-ratio: auto; border-radius: 0; object-fit: contain; transform: perspective(1000px) rotateY(-2deg) rotateX(1deg); filter: drop-shadow(0 10px 10px rgba(78, 63, 39, .14)) drop-shadow(0 22px 20px rgba(78, 63, 39, .16)); }
 .pokemon-at-work-scope { border-color: #e9dec9; background: linear-gradient(120deg, #f8f4eb, #f1eee6); }
 .pokemon-at-work-scope .community-theme-scope-heading h2 { color: #705a36; }
 .pokemon-at-work-scope .community-theme-scope-copy { color: #6c6454; }
@@ -908,6 +908,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .profile-hero { padding: 18px 25px; gap: 25px; }
   .reflection-theme-hero .reflection-feature { width: min(100%, 400px); }
   .northern-lights-theme-hero .community-theme-feature { width: min(100%, 420px); }
+  .pokemon-at-work-theme-hero .community-theme-feature { width: min(100%, 420px); }
   .yarn-one { right: 74px; }
   .yarn-two { right: 8px; }
   .needle-one { right: 87px; }
@@ -934,6 +935,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .profile-hero { margin: 18px 0 14px; padding: 21px 18px 16px; }
   .reflection-theme-hero .reflection-feature { width: min(100%, 330px); margin: 8px auto 0; }
   .northern-lights-theme-hero .community-theme-feature { width: min(100%, 360px); margin: 8px auto 0; }
+  .pokemon-at-work-theme-hero .community-theme-feature { width: min(100%, 360px); margin: 8px auto 0; }
   .reflection-scope { padding: 20px 17px 17px; }
   .community-theme-scope { padding: 20px 17px 17px; }
   .reflection-scope-grid { grid-template-columns: 1fr; gap: 9px; }
