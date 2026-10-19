@@ -168,7 +168,7 @@ function renderThemeHero(artist, cards) {
         '<nav class="profile-breadcrumbs" aria-label="Breadcrumb">',
           '<a href="./">Collections</a><span aria-hidden="true">/</span><span>' + escapeHtml(artist.pageCategory || "Community theme") + '</span><span aria-hidden="true">/</span><span aria-current="page">' + escapeHtml(artist.name) + '</span>',
         '</nav>',
-        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> ' + (reflectionTheme ? 'A hand-curated checklist' : 'A community-curated checklist') + '</p>',
+        '<p class="eyebrow community-theme-eyebrow' + (reflectionTheme ? ' reflection-eyebrow' : '') + '"><span class="eyebrow-dot"></span> ' + escapeHtml(artist.pageEyebrow || (reflectionTheme ? 'A hand-curated checklist' : 'A community-curated checklist')) + '</p>',
         '<h1 id="artist-title"><span>' + escapeHtml(artist.pageHeadingLead || "Pokémon cards with") + '</span><em>' + escapeHtml(artist.pageHeadingAccent || artist.name) + '</em></h1>',
         '<p class="profile-intro">' + escapeHtml(artist.pageBlurb) + '</p>',
         '<div class="profile-badges">',
@@ -214,7 +214,7 @@ function renderThemeScope(artist) {
       ? '<p class="community-theme-sources">A community-started list, with its first cards drawn from the <a href="' + escapeHtml(artist.themeScopeSourceUrl) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(artist.themeScopeSourceLabel) + '</a>. Card choices can grow as collectors suggest more examples.</p>'
       : "";
     return [
-      '<section class="community-theme-scope northern-lights-scope" aria-labelledby="theme-scope-title">',
+      '<section class="community-theme-scope ' + escapeHtml(artist.themeScopeClass || "northern-lights-scope") + '" aria-labelledby="theme-scope-title">',
         '<div class="community-theme-scope-heading"><p class="eyebrow muted">HOW THIS CHECKLIST IS CURATED</p><h2 id="theme-scope-title">' + escapeHtml(artist.themeScopeHeading || "What belongs in this collection?") + '</h2></div>',
         '<p class="community-theme-scope-copy">' + escapeHtml(artist.themeScopeBlurb || "Cards are included when the theme is clearly visible in the illustration.") + '</p>',
         sourceNote,
@@ -302,7 +302,7 @@ const homePage = replaceTokens(homeTemplate, {
   GA_MEASUREMENT_ID: gaMeasurementId,
   SOCIAL_PREVIEW_URL: escapeHtml(siteUrl + "/assets/pokechecklist-social-preview.jpg"),
   ARTIST_COUNT: homepageArtists.length,
-  THEME_COUNT_LABEL: `${homepageThemes.length} community theme${homepageThemes.length === 1 ? "" : "s"}`,
+  THEME_COUNT_LABEL: `${homepageThemes.length} curated theme${homepageThemes.length === 1 ? "" : "s"}`,
   CARD_COUNT: homepageCardCount,
   ARTIST_TILES: [...homepageCatalogs.map(item => renderTile(item.artist, item.cards)), renderSleepyPokemonTile()].join("\n          "),
   HOME_ALBUM_LEFT: homeAlbumCards.left,
