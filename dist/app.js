@@ -96,10 +96,9 @@
     return massEntryCards(list).map(card => {
       const name = card.tcgMassEntryName || card.name;
       if (!card.tcgCode) return "1 " + name;
-      if (!card.tcgNumber) return "1 " + name + " [" + card.tcgCode + "]";
-      if (card.tcgDashNumber) return "1 " + name + " - " + card.tcgNumber + " [" + card.tcgCode + "]";
-      if (card.tcgMassEntryName) return "1 " + name + " [" + card.tcgCode + "]";
-      return "1 " + name + " [" + card.tcgCode + "] " + card.tcgNumber;
+      // Mass Entry matches the TCGplayer product name and set code; a trailing collector number makes the line fail.
+      if (card.tcgDashNumber && card.tcgNumber) return "1 " + name + " - " + card.tcgNumber + " [" + card.tcgCode + "]";
+      return "1 " + name + " [" + card.tcgCode + "]";
     }).join("\n");
   }
 
