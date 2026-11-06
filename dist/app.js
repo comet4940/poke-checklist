@@ -407,9 +407,13 @@
         image.replaceWith(document.createRange().createContextualFragment('<span class="placeholder-slot-note">Image unavailable</span>'));
         resolve();
       };
-      if (image.complete && image.naturalWidth) return done();
       image.addEventListener("load", done);
       image.addEventListener("error", fail);
+      // The image may have finished before these listeners existed; settle it now.
+      if (image.complete) {
+        if (image.naturalWidth) done();
+        else fail();
+      }
     }));
     return Promise.race([Promise.all(loads), new Promise(resolve => setTimeout(resolve, timeout))]);
   }
