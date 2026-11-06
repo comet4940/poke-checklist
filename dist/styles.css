@@ -645,8 +645,8 @@ h1 em { color: #6b8770; font-weight: 500; }
 h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .save-note { display: inline-flex; align-items: center; gap: 7px; color: #828c82; font-size: 11px; font-weight: 500; }
 .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #84a286; box-shadow: 0 0 0 3px #edf4ed; }
-.progress-layout { gap: 32px; }
-.progress-main { flex: 1; min-width: 190px; }
+.progress-layout { flex-wrap: wrap; gap: 20px 32px; }
+.progress-main { flex: 1 1 380px; min-width: 0; }
 .progress-numbers { align-items: baseline; margin-bottom: 9px; }
 .progress-numbers strong { font-size: 26px; line-height: 1; color: #375947; letter-spacing: -.04em; }
 .progress-numbers small { font-size: 14px; font-weight: 500; letter-spacing: 0; color: #77847b; }
@@ -654,6 +654,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .progress-track { width: 100%; height: 8px; overflow: hidden; border-radius: 20px; background: #edf0e9; }
 .progress-track span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #a9c19f, #658d70); transition: width .35s ease; }
 .progress-caption { margin-top: 8px; gap: 10px; color: #89918a; font-size: 10px; }
+.missing-filter-button { white-space: nowrap; }
 .progress-note { color: #89918a; font-size: 10px; }
 .missing-filter-button {
   min-height: 29px;
@@ -678,7 +679,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .missing-filter-count { min-width: 19px; height: 19px; padding: 0 5px; display: inline-grid; place-items: center; border-radius: 99px; background: #e7ecdf; color: #49674f; font-size: 9px; line-height: 1; }
 .missing-filter-arrow { color: #78917a; font-size: 13px; line-height: 1; }
 .missing-filter-button[aria-pressed="true"] .missing-filter-arrow { transform: rotate(180deg); }
-.progress-actions { display: flex; gap: 9px; }
+.progress-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
 .button {
   min-height: 41px;
   padding: 0 15px;
@@ -956,8 +957,8 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .needle-one { right: 87px; }
   .needle-two { right: 62px; }
   .progress-layout { align-items: stretch; flex-direction: column; gap: 17px; }
-  .profile-hero + .collection-panel .progress-layout { align-items: center; flex-direction: row; gap: 18px; }
-  .progress-actions { justify-content: flex-end; }
+  .progress-main { flex: 0 0 auto; }
+  .progress-actions { justify-content: flex-start; }
   .card-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .artist-grid { gap: 13px; }
   .artist-tile { min-height: 0; padding: 19px 20px 0; }
@@ -971,8 +972,8 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .topbar { height: 62px; }
   .brand { font-size: 11px; }
   .brand-mark { width: 27px; height: 27px; }
-  .topbar-note { font-size: 9px; }
-  .topbar-link { font-size: 10px; }
+  .topbar-note { font-size: 11px; }
+  .topbar-link { font-size: 12px; }
   .hero { min-height: 0; margin-top: 18px; padding: 31px 24px 27px; display: block; }
   .profile-hero { margin: 18px 0 14px; padding: 21px 18px 16px; }
   .reflection-theme-hero .reflection-feature { width: min(100%, 330px); margin: 8px auto 0; }
@@ -981,11 +982,11 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .reflection-scope { padding: 20px 17px 17px; }
   .community-theme-scope { padding: 20px 17px 17px; }
   .reflection-scope-grid { grid-template-columns: 1fr; gap: 9px; }
-  .profile-breadcrumbs { gap: 8px; font-size: 10px; }
+  .profile-breadcrumbs { gap: 8px; font-size: 12px; }
   .profile-hero h1 { margin-top: 14px; font-size: clamp(37px, 10vw, 46px); }
   .profile-intro { margin: 12px 0 12px; font-size: 14px; line-height: 1.45; }
   .profile-badges { gap: 6px; }
-  .profile-badge { min-height: 29px; padding: 5px 9px; font-size: 10px; }
+  .profile-badge { min-height: 32px; padding: 5px 10px; font-size: 12px; }
   .profile-feature { width: min(100%, 200px); margin-top: 10px; }
   .artist-profile--tomokazu-komiya .profile-feature { width: min(100%, 330px); margin: 12px auto 8px; }
   .artist-profile--yuka-morii .profile-feature { width: min(100%, 290px); }
@@ -993,7 +994,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .artist-profile--shinji-kanda .profile-feature { width: min(100%, 300px); }
   .hero-copy { position: relative; z-index: 1; max-width: 100%; }
   h1 { font-size: 49px; }
-  .hero-intro { max-width: 370px; margin: 14px 0 14px; font-size: 12px; }
+  .hero-intro { max-width: 370px; margin: 14px 0 14px; font-size: 14px; }
   .home-hero h1 { font-size: 45px; }
   .hero-art { position: absolute; top: 2px; right: -2px; width: 155px; height: 167px; min-height: 0; opacity: .38; }
   .hero-art.home-album { position: relative; top: auto; right: auto; width: 100%; height: 224px; min-height: 0; margin: 14px auto 0; opacity: 1; }
@@ -1009,17 +1010,17 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .artist-directory { margin-top: 31px; }
   .directory-heading { align-items: start; flex-direction: column; gap: 8px; }
   .directory-heading h2 { font-size: 24px; }
-  .directory-intro { font-size: 11px; }
+  .directory-intro { font-size: 13px; }
   .artist-grid { grid-template-columns: 1fr; gap: 12px; }
   .artist-tile { min-height: 0; padding: 18px 18px 0; border-radius: 16px; }
-  .tile-medium { max-width: 74%; font-size: 10px; }
-  .tile-years { font-size: 9px; }
+  .tile-medium { max-width: 74%; font-size: 12px; }
+  .tile-years { font-size: 11px; }
   .tile-name { margin-top: 11px; font-size: 27px; }
-  .tile-description { margin-bottom: 11px; font-size: 11px; }
+  .tile-description { margin-bottom: 11px; font-size: 13px; }
   .tile-progress { padding: 10px 12px; }
-  .tile-progress-numbers { font-size: 11px; }
+  .tile-progress-numbers { font-size: 12px; }
   .tile-footer { min-height: 52px; margin-top: 10px; }
-  .tile-action { font-size: 11px; }
+  .tile-action { font-size: 14px; }
   .home-note { margin: 23px 0 28px; padding: 14px; }
   .collection-panel { padding: 14px 15px 13px; }
   .profile-hero + .collection-panel { padding: 14px 15px 13px; }
@@ -1027,7 +1028,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .panel-heading .eyebrow { display: none; }
   .panel-heading h2 { font-size: 18px; }
   .profile-hero + .collection-panel h2 { font-size: 18px; }
-  .save-note { margin-top: 0; font-size: 9px; white-space: nowrap; }
+  .save-note { margin-top: 0; font-size: 11px; white-space: nowrap; }
   .progress-layout { gap: 10px; }
   .profile-hero + .collection-panel .progress-layout { align-items: stretch; flex-direction: column; gap: 10px; }
   .progress-numbers { margin-bottom: 6px; }
@@ -1038,11 +1039,10 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .progress-track { height: 7px; }
   .progress-caption { margin-top: 5px; }
   .progress-note { display: none; }
-  .missing-filter-button { max-width: 100%; min-height: 28px; gap: 5px; padding: 4px 7px; font-size: 9px; }
-  .missing-filter-count { min-width: 17px; height: 17px; font-size: 8px; }
-  .progress-actions { display: grid; grid-template-columns: 1fr 1fr; }
-  .progress-actions #open-placeholders { grid-column: 1 / -1; }
-  .button { min-height: 36px; padding: 0 7px; font-size: 9px; }
+  .missing-filter-button { max-width: 100%; min-height: 40px; gap: 7px; padding: 6px 12px; font-size: 13px; }
+  .missing-filter-count { min-width: 22px; height: 22px; font-size: 11px; }
+  .progress-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .button { min-height: 44px; padding: 0 10px; font-size: 14px; }
   .cards-section { padding-top: 24px; }
   .profile-hero + .collection-panel + .cards-section { padding-top: 24px; }
   .cards-heading { align-items: stretch; flex-direction: column; gap: 8px; }
@@ -1051,30 +1051,50 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .profile-hero + .collection-panel + .cards-section .cards-heading h2 { font-size: 23px; }
   .search-box { width: auto; min-width: 0; flex: 1; }
   .search-box kbd { display: none; }
+  .search-box { min-height: 44px; }
+  .search-box input { font-size: 16px; }
   .list-tools { width: 100%; gap: 7px; }
-  .sort-toggle { min-height: 34px; padding: 0 9px; gap: 5px; font-size: 9px; }
+  .sort-toggle { min-height: 44px; padding: 0 12px; gap: 6px; font-size: 13px; }
   .sort-toggle-icon { font-size: 13px; }
   .card-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .card-row { padding: 8px; }
   .card-image-frame { margin-bottom: 8px; }
-  .card-copy h3 { font-size: 12px; }
-  .card-copy p { font-size: 9px; }
-  .collector-number { padding: 4px 5px; font-size: 9px; }
+  .card-copy h3 { font-size: 14px; }
+  .card-copy p { font-size: 11px; }
+  .collector-number { padding: 4px 6px; font-size: 11px; }
   .card-links { gap: 11px; }
+  .card-links { padding-top: 0; }
+  .card-links a { min-height: 44px; flex: 1; display: inline-flex; align-items: center; font-size: 12px; }
+  .card-title-line { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .card-copy h3 { max-width: 100%; }
+  .owned-tag { font-size: 11px; }
   .shopping-note { margin: 24px 0 32px; padding: 15px; align-items: start; flex-wrap: wrap; gap: 10px; }
   .shopping-note-icon { width: 31px; height: 31px; font-size: 15px; }
   .shopping-note > div:nth-child(2) { flex-basis: calc(100% - 43px); }
   .shopping-note h2 { font-size: 16px; }
-  .shopping-note p { font-size: 10px; }
+  .shopping-note p { font-size: 13px; }
   .shopping-note .text-button { margin-left: 41px; }
   .footer { padding: 16px 0 23px; }
   .footer-top { column-gap: 7px; }
-  .footer-disclaimer { max-width: calc(100% - 150px); }
+  .footer-disclaimer { max-width: calc(100% - 150px); font-size: 11px; }
   .dialog-content { padding: 30px 19px 23px; }
   .dialog-content h2 { font-size: 26px; }
   .dialog-actions { flex-direction: column; }
   .shopping-summary { align-items: start; flex-direction: column; gap: 7px; }
   .toast { right: 12px; bottom: 13px; left: 12px; text-align: center; }
+  .dialog-intro { font-size: 14px; }
+  .dialog-footnote { font-size: 11px; }
+  .condition-chip { font-size: 11px; }
+  .shopping-count { font-size: 13px; }
+  .shopping-count b { font-size: 16px; }
+  .placeholder-option b { font-size: 14px; }
+  .placeholder-option small { font-size: 12px; }
+  .placeholder-chip { min-height: 40px; font-size: 13px; }
+  .placeholder-options legend, .preview-head { font-size: 10px; }
+  .copy-button { min-height: 32px; padding: 4px 10px; font-size: 12px; }
+  .mass-entry-preview pre { font-size: 12px; }
+  .japanese-shop-note, .affiliate-disclosure { font-size: 12px; }
+  .shopping-steps p { font-size: 13px; }
 }
 
 @media print {
