@@ -440,6 +440,12 @@ h1 em { color: #6b8770; font-weight: 500; }
 .directory-heading .eyebrow { margin-bottom: 7px; }
 .directory-intro { max-width: 340px; margin: 0 0 2px; color: var(--muted); font-size: 12px; }
 .artist-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.directory-group + .directory-group { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--line); }
+.directory-group-heading { margin-bottom: 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.directory-group-heading h3 { margin: 0; color: #304740; font-family: Fraunces, Georgia, serif; font-size: 24px; font-weight: 500; letter-spacing: -.03em; line-height: 1.2; }
+.directory-group-count { padding: 3px 9px; border-radius: 99px; background: var(--sage); color: #4b6855; font-size: 11px; font-weight: 700; }
+.directory-group--themes .directory-group-count { background: var(--lilac); color: #5d5779; }
+.directory-group-heading p { width: 100%; margin: 0; color: var(--muted); font-size: 12px; }
 .artist-tile {
   position: relative;
   min-height: 0;
@@ -1012,6 +1018,9 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .directory-heading h2 { font-size: 24px; }
   .directory-intro { font-size: 13px; }
   .artist-grid { grid-template-columns: 1fr; gap: 12px; }
+  .directory-group + .directory-group { margin-top: 30px; padding-top: 24px; }
+  .directory-group-heading h3 { font-size: 20px; }
+  .directory-group-heading p { font-size: 13px; }
   .artist-tile { min-height: 0; padding: 18px 18px 0; border-radius: 16px; }
   .tile-medium { max-width: 74%; font-size: 12px; }
   .tile-years { font-size: 11px; }
