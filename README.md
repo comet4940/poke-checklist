@@ -10,6 +10,7 @@
 - Mark cards as collected and see binder progress update as you go.
 - Search by Pokémon or set, filter to owned or missing cards, and sort by release date.
 - Download a CSV of missing cards, copy or download a shopping list, or open it in TCGplayer Mass Entry.
+- Print card-sized binder placeholders (63 × 88 mm, 3 × 3 per sheet to match a 9-pocket page) for missing cards, or for the full checklist with owned cards as empty slots.
 - Share the homepage or an artist page with its own social preview and artist header image.
 
 ## Your binder and privacy

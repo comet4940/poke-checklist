@@ -18,6 +18,8 @@
     empty: document.getElementById("empty-state"),
     search: document.getElementById("search"),
     dialog: document.getElementById("shopping-dialog"),
+    placeholderDialog: document.getElementById("placeholder-dialog"),
+    placeholderSheet: document.getElementById("placeholder-sheet"),
     massText: document.getElementById("mass-entry-text"),
     toast: document.getElementById("toast"),
     progressTrack: document.querySelector(".progress-track")
@@ -336,6 +338,122 @@
     else window.location.href = url;
   }
 
+  const placeholdersPerPage = 9;
+  const paperSizes = { letter: "letter", a4: "A4" };
+
+  function sortedCards(list) {
+    return newestFirst ? list.slice().reverse() : list.slice();
+  }
+
+  function selectedRadio(name, fallback) {
+    const input = document.querySelector('input[name="' + name + '"]:checked');
+    return input ? input.value : fallback;
+  }
+
+  function placeholderCards(layout) {
+    return layout === "binder" ? sortedCards(cards) : sortedCards(missingCards());
+  }
+
+  // Ask the image hosts for their larger scans so placeholders print sharply at card size.
+  function printImageUrl(url) {
+    if (/^https:\/\/assets\.tcgdex\.net\/.+\/low\.(webp|png|jpg)$/.test(url)) return url.replace(/\/low\.(webp|png|jpg)$/, "/high.$1");
+    if (/^https:\/\/images\.pokemontcg\.io\/[^/]+\/[^/_]+\.png$/.test(url)) return url.replace(/\.png$/, "_hires.png");
+    return url;
+  }
+
+  function updatePlaceholderSummary() {
+    const count = placeholderCards(selectedRadio("placeholder-layout", "missing")).length;
+    document.getElementById("placeholder-card-count").textContent = count;
+    document.getElementById("placeholder-page-count").textContent = Math.ceil(count / placeholdersPerPage);
+  }
+
+  function openPlaceholderDialog() {
+    if (!cards.length) return;
+    const missingInput = document.querySelector('input[name="placeholder-layout"][value="missing"]');
+    const binderInput = document.querySelector('input[name="placeholder-layout"][value="binder"]');
+    const noneMissing = missingCards().length === 0;
+    missingInput.disabled = noneMissing;
+    if (noneMissing) binderInput.checked = true;
+    updatePlaceholderSummary();
+    els.placeholderDialog.showModal();
+  }
+
+  function placeholderSlotText(card) {
+    return '<span class="placeholder-label"><b>' + escapeHtml(card.name) + "</b>" +
+      escapeHtml(card.set) + " · " + escapeHtml(card.no) + "</span>";
+  }
+
+  function renderPlaceholder(card, layout) {
+    if (layout === "binder" && owned.has(card.id)) {
+      return '<div class="placeholder-cell is-owned-slot"><span class="placeholder-slot-note">In binder</span>' + placeholderSlotText(card) + "</div>";
+    }
+    if (!card.image) {
+      return '<div class="placeholder-cell is-text-only"><span class="placeholder-slot-note">Missing</span>' + placeholderSlotText(card) + "</div>";
+    }
+    return '<div class="placeholder-cell"><img src="' + escapeHtml(printImageUrl(card.image)) + '" data-fallback-src="' + escapeHtml(card.image) +
+      '" alt="" decoding="async"></div>';
+  }
+
+  function waitForImages(container, timeout) {
+    const images = Array.from(container.querySelectorAll("img"));
+    const loads = images.map(image => new Promise(resolve => {
+      const done = () => resolve();
+      const fail = () => {
+        const fallback = image.dataset.fallbackSrc;
+        if (fallback && image.getAttribute("src") !== fallback) {
+          image.src = fallback;
+          return;
+        }
+        image.replaceWith(document.createRange().createContextualFragment('<span class="placeholder-slot-note">Image unavailable</span>'));
+        resolve();
+      };
+      if (image.complete && image.naturalWidth) return done();
+      image.addEventListener("load", done);
+      image.addEventListener("error", fail);
+    }));
+    return Promise.race([Promise.all(loads), new Promise(resolve => setTimeout(resolve, timeout))]);
+  }
+
+  function clearPlaceholderSheet() {
+    document.body.classList.remove("printing-placeholders");
+    els.placeholderSheet.replaceChildren();
+    const style = document.getElementById("placeholder-page-style");
+    if (style) style.remove();
+  }
+
+  async function printPlaceholders() {
+    const layout = selectedRadio("placeholder-layout", "missing");
+    const paper = paperSizes[selectedRadio("placeholder-paper", "letter")] || "letter";
+    const list = placeholderCards(layout);
+    if (!list.length) {
+      toast("You have the full list. No placeholders needed.");
+      return;
+    }
+    const button = document.getElementById("print-placeholders");
+    const label = button.innerHTML;
+    button.disabled = true;
+    button.textContent = "Preparing sheets…";
+
+    const pages = [];
+    for (let index = 0; index < list.length; index += placeholdersPerPage) {
+      const cells = list.slice(index, index + placeholdersPerPage).map(card => renderPlaceholder(card, layout)).join("");
+      pages.push('<section class="placeholder-page paper-' + paper.toLowerCase() + '"><div class="placeholder-grid">' + cells + "</div></section>");
+    }
+    els.placeholderSheet.innerHTML = pages.join("");
+    const style = document.createElement("style");
+    style.id = "placeholder-page-style";
+    style.textContent = "@page { size: " + paper + "; margin: 0; }";
+    document.head.append(style);
+
+    await waitForImages(els.placeholderSheet, 15000);
+    button.disabled = false;
+    button.innerHTML = label;
+    els.placeholderDialog.close();
+    document.body.classList.add("printing-placeholders");
+    window.addEventListener("afterprint", clearPlaceholderSheet, { once: true });
+    window.print();
+  }
+
   function toast(message) {
     clearTimeout(toastTimeout);
     els.toast.textContent = message;
@@ -366,6 +484,9 @@
   document.getElementById("download-missing").addEventListener("click", downloadMissingCsv);
   document.getElementById("open-shopping").addEventListener("click", openShoppingDialog);
   document.getElementById("open-shopping-note").addEventListener("click", openShoppingDialog);
+  document.getElementById("open-placeholders").addEventListener("click", openPlaceholderDialog);
+  document.getElementById("print-placeholders").addEventListener("click", printPlaceholders);
+  els.placeholderDialog.addEventListener("change", updatePlaceholderSummary);
   document.getElementById("copy-list").addEventListener("click", copyMassEntry);
   document.getElementById("open-tcg-mass-entry").addEventListener("click", openTcgMassEntry);
   document.getElementById("download-tcg-text").addEventListener("click", () => {

@@ -10,28 +10,31 @@
   <meta name="description" content="Browse Pokémon cards with Northern Lights and aurora borealis artwork. Track each card by Pokémon, set, or illustrator.">
   <link rel="canonical" href="https://pokechecklist.com/pokemon-card-northern-lights/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PokeChecklist">
   <meta property="og:title" content="Northern Lights Pokémon Cards | PokeChecklist">
   <meta property="og:description" content="Browse Pokémon cards with Northern Lights and aurora borealis artwork. Track each card by Pokémon, set, or illustrator.">
   <meta property="og:url" content="https://pokechecklist.com/pokemon-card-northern-lights/">
   <meta property="og:image" content="https://pokechecklist.com/assets/northern-lights-social-preview-v2.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="Northern Lights Pokémon card checklist header with aurora artwork, title, description, and collection details.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Northern Lights Pokémon Cards | PokeChecklist">
   <meta name="twitter:description" content="Browse Pokémon cards with Northern Lights and aurora borealis artwork. Track each card by Pokémon, set, or illustrator.">
   <meta name="twitter:image" content="https://pokechecklist.com/assets/northern-lights-social-preview-v2.jpg">
+  <meta name="twitter:image:alt" content="Northern Lights Pokémon card checklist header with aurora artwork, title, description, and collection details.">
   <title>Northern Lights Pokémon Cards | PokeChecklist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=25">
   <script>
     window.CURRENT_ARTIST_ID = "pokemon-card-northern-lights";
     window.POKE_CHECKLIST_ANALYTICS = { measurementId: "", pageType: "theme", artistId: "pokemon-card-northern-lights", themeId: "pokemon-card-northern-lights" };
   </script>
-  <script src="analytics.js?v=3" defer></script>
+  <script src="analytics.js?v=4" defer></script>
   <script src="artists.js" defer></script>
   <script src="data/northern-lights.js" defer></script>
-  <script src="app.js?v=8" defer></script>
+  <script src="app.js?v=9" defer></script>
   <!-- Buy Me a Coffee support widget -->
   <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="cometakira" data-description="Leave a little treat for the binder." data-message="" data-color="#466F5D" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </head>
@@ -73,6 +76,7 @@
           <div class="progress-actions">
             <button class="button button-primary" id="download-missing"><span aria-hidden="true">↓</span> Download missing list</button>
             <button class="button button-secondary" id="open-shopping"><span aria-hidden="true">↗</span> Shop missing cards</button>
+            <button class="button button-secondary" id="open-placeholders"><span aria-hidden="true">⎙</span> Print placeholders</button>
           </div>
         </div>
       </section>
@@ -136,8 +140,30 @@
       <a class="help-link" href="https://help.tcgplayer.com/hc/en-us/articles/360055768913-Getting-Started-With-Mass-Entry" target="_blank" rel="noopener noreferrer">How Mass Entry works <span aria-hidden="true">↗</span></a>
     </div>
   </dialog>
+  <dialog id="placeholder-dialog" class="shopping-dialog placeholder-dialog" aria-labelledby="placeholder-title">
+    <form method="dialog" class="dialog-top"><button class="close-button" aria-label="Close print placeholders">×</button></form>
+    <div class="dialog-content">
+      <p class="eyebrow muted">FOR YOUR BINDER</p>
+      <h2 id="placeholder-title">Print placeholders</h2>
+      <p class="dialog-intro">Print card-sized placeholders to hold each spot in your binder until the real card arrives. Every sheet is a 3 × 3 grid that matches a 9-pocket binder page.</p>
+      <fieldset class="placeholder-options">
+        <legend>What to print</legend>
+        <label class="placeholder-option"><input type="radio" name="placeholder-layout" value="missing" checked><span><b>Missing cards only</b><small>One placeholder for each card not in your binder.</small></span></label>
+        <label class="placeholder-option"><input type="radio" name="placeholder-layout" value="binder"><span><b>Full binder layout</b><small>Every card in checklist order. Cards you own print as empty outlined slots, so each sheet mirrors a binder page.</small></span></label>
+      </fieldset>
+      <fieldset class="placeholder-options placeholder-paper">
+        <legend>Paper</legend>
+        <label class="placeholder-chip"><input type="radio" name="placeholder-paper" value="letter" checked><span>US Letter</span></label>
+        <label class="placeholder-chip"><input type="radio" name="placeholder-paper" value="a4"><span>A4</span></label>
+      </fieldset>
+      <div class="shopping-summary"><span class="shopping-count"><b id="placeholder-card-count">0</b> placeholders · <b id="placeholder-page-count">0</b> pages</span><span class="condition-chip"><span></span> Print at 100% / Actual size</span></div>
+      <div class="dialog-actions">
+        <button class="button button-primary" id="print-placeholders"><span aria-hidden="true">⎙</span> Print placeholders</button>
+      </div>
+      <p class="dialog-footnote">In your browser’s print dialog, set scale to 100% (or “Actual size”) and turn off “Fit to page” so each placeholder prints at real card size, 63 × 88 mm. Choose “Save as PDF” to keep a copy.</p>
+    </div>
+  </dialog>
+  <div id="placeholder-sheet" class="placeholder-sheet" aria-hidden="true"></div>
   <div id="toast" role="status" aria-live="polite" class="toast"></div>
 </body>
 </html>
-
-

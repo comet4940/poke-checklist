@@ -18,7 +18,7 @@ Every event sent by the site includes:
 
 | Field | Meaning |
 | --- | --- |
-| `analytics_version` | Contract version, currently `pokechecklist_v2`. |
+| `analytics_version` | Contract version, currently `pokechecklist_v3`. |
 | `page_type` | `home` or `artist`. |
 | `page_path` | Pathname only, without query string or fragment. |
 | `artist_id` | Artist slug on artist pages only. |
@@ -44,12 +44,14 @@ The Google tag also receives the static page title. Google Signals and ad-person
 | `mass_entry_text_download_requested` | A visitor requests a text list while cards are missing. | `file_format`: `txt` |
 | `tcgplayer_mass_entry_requested` | A visitor requests the TCGplayer mass-entry page while cards are missing. | None |
 | `tcgplayer_card_search_requested` | A visitor opens a TCGplayer card-search link. | None |
+| `placeholder_dialog_opened` | A visitor opens the print placeholders dialog. | None |
+| `placeholder_print_requested` | A visitor selects the print control in the placeholders dialog. | `print_layout`: `missing_only` or `binder_layout`; `paper_size`: `letter` or `a4` |
 
 ## Data that must never be sent
 
 Do not send names, email addresses, account IDs, user IDs, card IDs, card names, set names, collector numbers, raw search text, clipboard contents, shopping-list contents, outbound URLs, or page query strings to Google Analytics. The Sleepy Pokémon referral link may include fixed campaign tags in its destination URL; the tracker never reads or sends those tags to Google Analytics. Do not add user properties or ecommerce events. Do not place personal data in page titles, paths, or URLs.
 
-Search tracking sends only a coarse query-length bucket, never typed text. Card checkboxes send only whether a card was added or removed, never which card. Shopping interactions send only the action and its source.
+Search tracking sends only a coarse query-length bucket, never typed text. Card checkboxes send only whether a card was added or removed, never which card. Shopping interactions send only the action and its source. Placeholder printing sends only the chosen layout and paper size, never which cards were printed or how many.
 
 ## Google Analytics stream settings
 
