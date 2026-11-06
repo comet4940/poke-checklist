@@ -93,13 +93,14 @@ function renderTile(artist, cards) {
   const tileLabel = artist.tileLabel || artist.medium;
   const tileName = artist.tileName || artist.name;
   const tileAction = artist.tileAction || (isTheme ? 'Explore community theme' : 'View collection checklist');
-  const tileSummary = isTheme ? cards.length + " cards in this theme" : yearRange;
+  const tileSummary = isTheme ? cards.length + " cards" : yearRange;
+  const tileSummaryExtra = isTheme ? '<span class="tile-years-extra"> in this theme</span>' : "";
   const tileSummaryLabel = isTheme ? cards.length + " " + (artist.tileSummaryNoun || "community theme") + " cards" : "Cards from " + (firstYear || "") + " to " + (lastYear || "");
   return [
     '<a class="artist-tile tile-' + escapeHtml(artist.mediumTone) + (tileClass ? ' ' + escapeHtml(tileClass) : '') + '" href="' + escapeHtml(artist.id) + '/" aria-label="' + escapeHtml(tileName + ': ' + tileAction) + '" data-collection-type="' + (isTheme ? 'theme' : 'artist') + '" data-artist-id="' + escapeHtml(artist.id) + '"' + (isTheme ? ' data-theme-id="' + escapeHtml(artist.id) + '"' : '') + ' data-card-ids="' + escapeHtml(cardIds) + '">',
       '<div class="tile-topline">',
         '<span class="tile-medium"><span aria-hidden="true">' + escapeHtml(artist.mediumIcon) + '</span> ' + escapeHtml(tileLabel) + '</span>',
-        '<span class="tile-years" aria-label="' + escapeHtml(tileSummaryLabel) + '">' + escapeHtml(tileSummary) + '</span>',
+        '<span class="tile-years" aria-label="' + escapeHtml(tileSummaryLabel) + '">' + escapeHtml(tileSummary) + tileSummaryExtra + '</span>',
       '</div>',
       '<h3 class="tile-name">' + escapeHtml(tileName) + '</h3>',
       '<p class="tile-description">' + escapeHtml(artist.description) + '</p>',
