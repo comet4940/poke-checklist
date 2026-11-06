@@ -31,7 +31,7 @@
   window.gtag("config", measurementId, configOptions);
 
   const commonParams = {
-    analytics_version: "pokechecklist_v2",
+    analytics_version: "pokechecklist_v3",
     page_type: pageType,
     page_path: pagePath
   };
@@ -46,7 +46,9 @@
     sort_order: value => ["oldest_first", "newest_first"].includes(value),
     query_length_bucket: value => ["1-3", "4-7", "8+"].includes(value),
     file_format: value => ["csv", "txt"].includes(value),
-    interaction_source: value => ["primary_button", "footer_note"].includes(value)
+    interaction_source: value => ["primary_button", "footer_note"].includes(value),
+    print_layout: value => ["missing_only", "binder_layout"].includes(value),
+    paper_size: value => ["letter", "a4"].includes(value)
   };
   const allowedParams = {
     page_view: [],
@@ -63,7 +65,9 @@
     mass_entry_copy_requested: [],
     mass_entry_text_download_requested: ["file_format"],
     tcgplayer_mass_entry_requested: [],
-    tcgplayer_card_search_requested: []
+    tcgplayer_card_search_requested: [],
+    placeholder_dialog_opened: [],
+    placeholder_print_requested: ["print_layout", "paper_size"]
   };
 
   function track(eventName, params = {}) {
@@ -124,6 +128,15 @@
     }
     if (target.closest("#open-tcg-mass-entry") && hasMissingCards()) {
       track("tcgplayer_mass_entry_requested");
+    }
+    if (target.closest("#open-placeholders")) track("placeholder_dialog_opened");
+    if (target.closest("#print-placeholders")) {
+      const layout = document.querySelector('input[name="placeholder-layout"]:checked')?.value;
+      const paper = document.querySelector('input[name="placeholder-paper"]:checked')?.value;
+      track("placeholder_print_requested", {
+        print_layout: layout === "binder" ? "binder_layout" : "missing_only",
+        paper_size: paper === "a4" ? "a4" : "letter"
+      });
     }
     if (target.closest('a[href*="tcgplayer.com/search/pokemon/product"]')) {
       track("tcgplayer_card_search_requested");
