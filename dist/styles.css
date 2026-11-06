@@ -880,6 +880,21 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .shopping-steps li > span { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; background: #e8eee4; color: #608069; font-size: 9px; font-weight: 700; }
 .shopping-steps p { margin: 1px 0 0; color: #768179; font-size: 10px; line-height: 1.6; }
 .shopping-steps b { color: #536b59; }
+.placeholder-options { margin: 0 0 14px; padding: 0; border: 0; display: grid; gap: 7px; }
+.placeholder-options legend { margin-bottom: 7px; padding: 0; color: #929990; font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.placeholder-option { padding: 10px 12px; display: grid; grid-template-columns: 16px 1fr; gap: 9px; align-items: start; border: 1px solid #e6e6dc; border-radius: 8px; background: #fff; cursor: pointer; }
+.placeholder-option:has(input:checked) { border-color: #b9cfbc; background: #f3f7f1; }
+.placeholder-option:has(input:disabled) { cursor: default; opacity: .55; }
+.placeholder-option input, .placeholder-chip input { margin: 2px 0 0; accent-color: var(--green); }
+.placeholder-option b { display: block; color: var(--ink); font-size: 12px; }
+.placeholder-option small { display: block; margin-top: 2px; color: #79857c; font-size: 10px; line-height: 1.5; }
+.placeholder-paper { display: flex; flex-wrap: wrap; }
+.placeholder-paper legend { width: 100%; }
+.placeholder-chip { padding: 6px 11px; display: inline-flex; align-items: center; gap: 7px; border: 1px solid #e6e6dc; border-radius: 20px; background: #fff; color: #536d5a; cursor: pointer; font-size: 11px; font-weight: 600; }
+.placeholder-chip:has(input:checked) { border-color: #b9cfbc; background: #f3f7f1; }
+.placeholder-chip input { margin: 0; }
+.placeholder-sheet { display: none; }
+
 .dialog-footnote { margin: 18px 0 7px; color: #9aa199; font-size: 9px; line-height: 1.55; }
 .help-link { color: #7e8e7f; font-size: 9px; font-weight: 600; text-decoration: none; }
 .help-link span { color: #9aa698; }
@@ -998,6 +1013,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .missing-filter-button { max-width: 100%; min-height: 28px; gap: 5px; padding: 4px 7px; font-size: 9px; }
   .missing-filter-count { min-width: 17px; height: 17px; font-size: 8px; }
   .progress-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .progress-actions #open-placeholders { grid-column: 1 / -1; }
   .button { min-height: 36px; padding: 0 7px; font-size: 9px; }
   .cards-section { padding-top: 24px; }
   .profile-hero + .collection-panel + .cards-section { padding-top: 24px; }
@@ -1054,3 +1070,23 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .shopping-dialog { display: none; }
 }
 
+/* Binder placeholders: a 3 × 3 grid of real card-size (63 × 88 mm) cells per sheet. */
+@media print {
+  body.printing-placeholders { margin: 0; background: #fff; }
+  body.printing-placeholders > :not(.placeholder-sheet) { display: none !important; }
+  body.printing-placeholders .placeholder-sheet { display: block; }
+  .placeholder-page { width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; break-after: page; page-break-after: always; }
+  .placeholder-page:last-child { break-after: auto; page-break-after: auto; }
+  .placeholder-page.paper-letter { height: 279.4mm; }
+  .placeholder-page.paper-a4 { height: 297mm; }
+  .placeholder-grid { width: 189mm; height: 264mm; display: grid; grid-template-columns: repeat(3, 63mm); grid-template-rows: repeat(3, 88mm); align-content: start; }
+  .placeholder-cell { width: 63mm; height: 88mm; box-sizing: border-box; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; overflow: hidden; outline: .1mm solid #c8c8c8; background: #fff; color: #555; font-family: "Plus Jakarta Sans", system-ui, sans-serif; text-align: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .placeholder-cell img { width: 100%; height: 100%; display: block; object-fit: contain; }
+  .placeholder-cell.is-owned-slot, .placeholder-cell.is-text-only { padding: 6mm; border: .3mm dashed #b5b5b5; outline: none; }
+  .placeholder-cell.is-text-only { border-style: solid; }
+  .placeholder-slot-note { color: #8a8a8a; font-size: 7pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .placeholder-label { font-size: 8pt; line-height: 1.4; }
+  .placeholder-label b { display: block; margin-bottom: 1mm; color: #333; font-size: 11pt; }
+  .is-owned-slot .placeholder-label { color: #9a9a9a; }
+  .is-owned-slot .placeholder-label b { color: #8a8a8a; }
+}
