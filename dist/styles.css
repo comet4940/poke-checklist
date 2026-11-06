@@ -1034,7 +1034,8 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .card-copy p { font-size: 11px; }
   .collector-number { padding: 4px 6px; font-size: 11px; }
   .card-links { gap: 11px; }
-  .card-links a { min-height: 32px; display: inline-flex; align-items: center; font-size: 12px; }
+  .card-links { padding-top: 0; }
+  .card-links a { min-height: 44px; flex: 1; display: inline-flex; align-items: center; font-size: 12px; }
   .card-title-line { flex-direction: column; align-items: flex-start; gap: 2px; }
   .card-copy h3 { max-width: 100%; }
   .owned-tag { font-size: 11px; }
