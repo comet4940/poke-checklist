@@ -618,8 +618,8 @@ h1 em { color: #6b8770; font-weight: 500; }
 h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .save-note { display: inline-flex; align-items: center; gap: 7px; color: #828c82; font-size: 11px; font-weight: 500; }
 .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #84a286; box-shadow: 0 0 0 3px #edf4ed; }
-.progress-layout { gap: 32px; }
-.progress-main { flex: 1; min-width: 190px; }
+.progress-layout { flex-wrap: wrap; gap: 20px 32px; }
+.progress-main { flex: 1 1 380px; min-width: 0; }
 .progress-numbers { align-items: baseline; margin-bottom: 9px; }
 .progress-numbers strong { font-size: 26px; line-height: 1; color: #375947; letter-spacing: -.04em; }
 .progress-numbers small { font-size: 14px; font-weight: 500; letter-spacing: 0; color: #77847b; }
@@ -627,6 +627,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .progress-track { width: 100%; height: 8px; overflow: hidden; border-radius: 20px; background: #edf0e9; }
 .progress-track span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #a9c19f, #658d70); transition: width .35s ease; }
 .progress-caption { margin-top: 8px; gap: 10px; color: #89918a; font-size: 10px; }
+.missing-filter-button { white-space: nowrap; }
 .progress-note { color: #89918a; font-size: 10px; }
 .missing-filter-button {
   min-height: 29px;
@@ -651,7 +652,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .missing-filter-count { min-width: 19px; height: 19px; padding: 0 5px; display: inline-grid; place-items: center; border-radius: 99px; background: #e7ecdf; color: #49674f; font-size: 9px; line-height: 1; }
 .missing-filter-arrow { color: #78917a; font-size: 13px; line-height: 1; }
 .missing-filter-button[aria-pressed="true"] .missing-filter-arrow { transform: rotate(180deg); }
-.progress-actions { display: flex; gap: 9px; }
+.progress-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
 .button {
   min-height: 41px;
   padding: 0 15px;
@@ -929,8 +930,8 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .needle-one { right: 87px; }
   .needle-two { right: 62px; }
   .progress-layout { align-items: stretch; flex-direction: column; gap: 17px; }
-  .profile-hero + .collection-panel .progress-layout { align-items: center; flex-direction: row; gap: 18px; }
-  .progress-actions { justify-content: flex-end; }
+  .progress-main { flex: 0 0 auto; }
+  .progress-actions { justify-content: flex-start; }
   .card-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .artist-grid { gap: 13px; }
   .artist-tile { min-height: 0; padding: 19px 20px 0; }
