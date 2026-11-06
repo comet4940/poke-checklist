@@ -334,6 +334,33 @@ h1 em { color: #6b8770; font-weight: 500; }
   filter: drop-shadow(0 16px 18px rgba(76, 61, 37, .2));
 }
 
+.artist-profile--sachiko-adachi {
+  border-color: #dde3d2;
+  background:
+    radial-gradient(circle, rgba(92, 122, 74, .13) .7px, transparent .9px) 0 0 / 21px 21px,
+    #f1f2e8;
+}
+.artist-profile--sachiko-adachi h1 em { color: #5b7a45; }
+.artist-profile--sachiko-adachi .profile-badge-medium {
+  border-color: #d6e0cb;
+  background: #eef3e6;
+  color: #4d6a3b;
+}
+.artist-profile--sachiko-adachi .profile-feature {
+  width: min(100%, 580px);
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.artist-profile--sachiko-adachi .profile-feature-image {
+  aspect-ratio: auto;
+  border-radius: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(61, 70, 41, .2));
+}
+
 .artist-profile--shinji-kanda {
   border-color: #d7dce1;
   background:
@@ -962,6 +989,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
   .profile-feature { width: min(100%, 200px); margin-top: 10px; }
   .artist-profile--tomokazu-komiya .profile-feature { width: min(100%, 330px); margin: 12px auto 8px; }
   .artist-profile--yuka-morii .profile-feature { width: min(100%, 290px); }
+  .artist-profile--sachiko-adachi .profile-feature { width: min(100%, 330px); }
   .artist-profile--shinji-kanda .profile-feature { width: min(100%, 300px); }
   .hero-copy { position: relative; z-index: 1; max-width: 100%; }
   h1 { font-size: 49px; }
