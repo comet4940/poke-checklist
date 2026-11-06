@@ -793,6 +793,7 @@ h2 { margin: 0; color: #304740; font-size: 25px; line-height: 1.15; }
 .search-box input::placeholder { color: #9ca49a; }
 .search-box kbd { padding: 2px 4px; border: 1px solid #ebede7; border-radius: 4px; color: #9ca39a; font-family: inherit; font-size: 9px; }
 .card-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.card-list[hidden] { display: none; }
 .loading-message { grid-column: 1 / -1; padding: 24px; color: #78867b; font-size: 13px; text-align: center; }
 .year-heading { grid-column: 1 / -1; margin: 17px 0 -2px; display: flex; align-items: center; gap: 12px; color: #90998f; font-size: 10px; font-weight: 700; letter-spacing: .11em; }
 .year-heading:first-child { margin-top: 2px; }
