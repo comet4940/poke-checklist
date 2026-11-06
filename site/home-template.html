@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=27">
+  <link rel="stylesheet" href="styles.css?v=28">
   <script>window.POKE_CHECKLIST_ANALYTICS = { measurementId: "{{GA_MEASUREMENT_ID}}", pageType: "home" };</script>
   <script src="analytics.js?v=4" defer></script>
   <script src="artists.js" defer></script>
@@ -82,9 +82,26 @@
           </div>
           <p class="directory-intro">Open an illustrator’s collection or a visual theme, then check off cards in your binder.</p>
         </div>
-        <div class="artist-grid">
-          {{ARTIST_TILES}}
-        </div>
+        <section class="directory-group" aria-labelledby="artist-group-title">
+          <div class="directory-group-heading">
+            <h3 id="artist-group-title">Artists</h3>
+            <span class="directory-group-count">{{ARTIST_GROUP_COUNT}}</span>
+            <p>Every card by a single illustrator, from their first set to their newest.</p>
+          </div>
+          <div class="artist-grid">
+            {{ARTIST_TILES}}
+          </div>
+        </section>
+        <section class="directory-group directory-group--themes" aria-labelledby="theme-group-title">
+          <div class="directory-group-heading">
+            <h3 id="theme-group-title">Themes</h3>
+            <span class="directory-group-count">{{THEME_GROUP_COUNT}}</span>
+            <p>Cards from many illustrators, gathered around a shared idea.</p>
+          </div>
+          <div class="artist-grid">
+            {{THEME_TILES}}
+          </div>
+        </section>
       </section>
 
       <section class="home-note">

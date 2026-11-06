@@ -316,7 +316,10 @@ const homePage = replaceTokens(homeTemplate, {
   ARTIST_COUNT: homepageArtists.length,
   THEME_COUNT_LABEL: `${homepageThemes.length} curated theme${homepageThemes.length === 1 ? "" : "s"}`,
   CARD_COUNT: homepageCardCount,
-  ARTIST_TILES: [...homepageCatalogs.map(item => renderTile(item.artist, item.cards)), renderSleepyPokemonTile()].join("\n          "),
+  ARTIST_TILES: homepageArtists.map(item => renderTile(item.artist, item.cards)).join("\n            "),
+  ARTIST_GROUP_COUNT: homepageArtists.length + (homepageArtists.length === 1 ? " artist" : " artists"),
+  THEME_TILES: [...homepageThemes.map(item => renderTile(item.artist, item.cards)), renderSleepyPokemonTile()].join("\n            "),
+  THEME_GROUP_COUNT: homepageThemes.length + (homepageThemes.length === 1 ? " theme" : " themes") + " + a sister project",
   HOME_ALBUM_LEFT: homeAlbumCards.left,
   HOME_ALBUM_RIGHT: homeAlbumCards.right
 });
