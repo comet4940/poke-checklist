@@ -520,6 +520,7 @@
     els.empty.hidden = false;
     els.empty.querySelector("h3").textContent = "This checklist isn’t available";
     els.empty.querySelector("p").textContent = "Return to the checklist directory and choose another collection.";
+    document.getElementById("clear-search").hidden = true;
   } else {
     cards = catalog.cards;
     owned = readOwned(currentArtist, cards);
